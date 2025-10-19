@@ -6,7 +6,6 @@
   <title>Talha Afridi — Flutter & Fullstack Developer</title>
   <meta name="description" content="Talha Afridi — Flutter, FastAPI, Firebase & Python Developer. Modern, animated and production-ready portfolio." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --bg:#0c1221;
@@ -30,39 +29,20 @@
     }
 
     body.light-theme .intro h2,
-    body.light-theme .project h3 {
-      color: #111;
-    }
-
-    body.light-theme nav a {
-      color: #111;
-    }
-
-    body.light-theme nav a:hover {
-      color: #fff;
-    }
-
+    body.light-theme .project h3,
     body.light-theme .about h3,
     body.light-theme .about p {
       color: #111;
     }
-    body.light-theme input,
-body.light-theme textarea {
-  background: #fff;
-  color: #111;
-  border: 1px solid rgba(0,0,0,0.1);
-}
 
-/* Chips for light theme */
-body.light-theme .chip {
-  background: rgba(0, 123, 255, 0.1); /* subtle blue background */
-  color: #0077ff;
-  border: 1px solid rgba(0,123,255,0.3);
-}
+    body.light-theme nav a { color: #111; }
+    body.light-theme nav a:hover { color: #fff; }
+    body.light-theme input,
+    body.light-theme textarea { background: #fff; color: #111; border: 1px solid rgba(0,0,0,0.1); }
+    body.light-theme .chip { background: rgba(0, 123, 255, 0.1); color: #0077ff; border: 1px solid rgba(0,123,255,0.3); }
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html,body{background:var(--bg);color:#e8f1fa;scroll-behavior:smooth;overflow-x:hidden;}
-
     body::before{
       content:"";
       position:fixed;top:0;left:0;right:0;bottom:0;
@@ -75,7 +55,6 @@ body.light-theme .chip {
     header{
       display:flex;justify-content:space-between;align-items:center;
       padding:28px 40px;max-width:1200px;margin:auto;
-      animation:fadeDown 1s ease;
       flex-wrap:wrap;
     }
     .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
@@ -85,14 +64,19 @@ body.light-theme .chip {
       display:flex;align-items:center;justify-content:center;
       font-weight:800;font-size:20px;color:#011;box-shadow:var(--shadow);
     }
-    nav{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;}
+    nav{
+      display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;
+    }
     nav a{
-      text-decoration:none;font-weight:600;margin:6px 6px;
-      color:#fff;transition:0.3s;padding:8px 14px;border-radius:10px;
+      text-decoration:none;font-weight:600;margin:4px 6px;
+      color:#fff;transition:0.3s;padding:6px 12px;border-radius:10px;
     }
     nav a:hover{
       background:linear-gradient(90deg,var(--accent),var(--accent2));
       color:#011;box-shadow:0 0 10px var(--accent2);
+    }
+    #theme-toggle{
+      padding:6px 12px;border-radius:8px;cursor:pointer;border:none;font-weight:600;
     }
 
     main{max-width:1200px;margin:auto;padding:20px;}
@@ -105,7 +89,6 @@ body.light-theme .chip {
     .intro{
       background:var(--card);backdrop-filter:blur(10px);
       border-radius:18px;padding:32px;box-shadow:var(--shadow);
-      animation:fadeUp 1.2s ease;
     }
     .intro h2{font-size:32px;line-height:1.3;color:#fff;}
     .intro p{margin-top:12px;color:var(--muted);font-size:15px;}
@@ -124,7 +107,7 @@ body.light-theme .chip {
     .cta:hover{transform:translateY(-3px);filter:brightness(1.1);}
     .profile{
       border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,0.05);animation:fadeIn 1.5s ease;
+      border:1px solid rgba(255,255,255,0.05);
       max-width:100%;
     }
     .profile img{width:100%;height:auto;display:block;}
@@ -185,11 +168,12 @@ body.light-theme .chip {
 
     footer{text-align:center;margin-top:60px;color:var(--muted);font-size:14px;padding-bottom:30px;}
 
+    /* ANIMATIONS */
     @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
     @keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
     @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 
-    /* RESPONSIVE ADJUSTMENTS */
+    /* RESPONSIVE */
     @media(max-width:900px){
       .hero{grid-template-columns:1fr;text-align:center;gap:30px;}
       header{flex-direction:column;gap:16px;padding:20px;}
@@ -202,49 +186,174 @@ body.light-theme .chip {
       .intro h2{font-size:20px;}
       .chip{font-size:12px;padding:5px 12px;}
       .project h3{font-size:16px;}
+      .project p{font-size:13px;}
       .flex a{font-size:12px;}
       nav a{padding:6px 10px;font-size:14px;}
+      #theme-toggle{font-size:14px;padding:5px 10px;}
+      .about{padding:20px;margin-top:40px;}
+      .about h3{font-size:18px;}
+      .about p{font-size:13px;}
+      input,textarea,.submit-btn{font-size:13px;padding:10px;}
+      .whatsapp-btn{width:50px;height:50px;font-size:24px;bottom:16px;right:16px;}
+      .cta{padding:10px 16px;font-size:14px;}
+      .chips{justify-content:center;}
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="brand">
-      <div class="logo">TA</div>
-      <div>
-        <h1>Talha Afridi</h1>
-        <p style="color:var(--muted)">Flutter & Fullstack Developer</p>
-      </div>
+<header>
+  <div class="brand">
+    <div class="logo">TA</div>
+    <div>
+      <h1>Talha Afridi</h1>
+      <p style="color:var(--muted)">Flutter & Fullstack Developer</p>
     </div>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#" id="cv-btn">Download CV</a>
-      <!-- Theme Toggle Button -->
-      <button id="theme-toggle" style="margin-left:12px; padding:6px 12px; border-radius:8px; cursor:pointer; border:none; font-weight:600;">🌙</button>
-    </nav>
-  </header>
+  </div>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#" id="cv-btn">Download CV</a>
+    <button id="theme-toggle">🌙</button>
+  </nav>
+</header>
 
-  <main>
-    <!-- Hero, Projects, About, Contact Sections (unchanged) -->
-    <section class="hero">
-      <div class="intro">
-        <h2>👋 Hi, I’m Talha — Flutter, FastAPI & Python Developer</h2>
-        <p>I build modern apps using Flutter, FastAPI, and Firebase — with clean architecture, BLoC state management, and secure backend integration. My goal is to create seamless digital experiences from backend to frontend.</p>
-        <div class="chips">
-          <div class="chip">Flutter</div><div class="chip">FastAPI</div><div class="chip">Firebase</div>
-          <div class="chip">Hive</div><div class="chip">SQLite</div><div class="chip">Python</div>
-          <div class="chip">BLoC</div><div class="chip">Provider</div><div class="chip">Cybersecurity</div>
+<main>
+  <section class="hero">
+    <div class="intro">
+      <h2>👋 Hi, I’m Talha — Flutter, FastAPI & Python Developer</h2>
+      <p>I build modern apps using Flutter, FastAPI, and Firebase — with clean architecture, BLoC state management, and secure backend integration. My goal is to create seamless digital experiences from backend to frontend.</p>
+      <div class="chips">
+        <div class="chip">Flutter</div><div class="chip">FastAPI</div><div class="chip">Firebase</div>
+        <div class="chip">Hive</div><div class="chip">SQLite</div><div class="chip">Python</div>
+        <div class="chip">BLoC</div><div class="chip">Provider</div><div class="chip">Cybersecurity</div>
+      </div>
+      <a class="cta" href="#projects">Explore Projects 🚀</a>
+    </div>
+    <div class="profile">
+      <img src="profile.jpeg" alt="Talha Afridi">
+    </div>
+  </section>
+
+  <h2 id="projects" class="section-title">🚧 Featured Projects</h2>
+  <div class="projects">
+    <div class="card project">
+      <h3>Smart Expense Manager</h3>
+      <p>Flutter app with Hive offline DB, categories, charts, and export to PDF. FastAPI backend for sync.</p>
+      <div class="flex"><a href="https://github.com/q343313/Expence-Tracker-App" target="_blank">View Code</a> <a href="projects/expence.html">View Details</a></div>
+    </div>
+    <div class="card project">
+      <h3>E-Local Market</h3>
+      <p>Flutter frontend + FastAPI backend demo with authentication, image upload, and push notifications.</p>
+      <div class="flex"><a href="https://github.com/q343313/localmarket" target="_blank">View Code</a> <a href="projects/market.html">View Details</a></div>
+    </div>
+    <div class="card project">
+      <h3>Password Manager</h3>
+      <p>Single-page Flutter-style Password manager built with HTML/CSS/JS. Lightweight, mobile-first, easy to customize.</p>
+      <div class="flex"><a href="https://github.com/q343313/Password-Manager.git" target="_blank">View Code</a> <a href="projects/pasman.html">View Details</a></div>
+    </div>
+    <div class="card project">
+      <h3>AI Chat App</h3>
+      <p>Flutter chat interface integrated with OpenRouter / custom backend. Features streaming responses and offline cache.</p>
+      <div class="flex"><a href="https://github.com/q343313/chatGptApp" target="_blank">View Code</a> <a href="projects/chat.html">View Details</a></div>
+    </div>
+    <div class="card project">
+      <h3>TODO App</h3>
+      <p>Single-page Flutter-style TODO-APP site built with HTML/CSS/JS. Lightweight, mobile-first, easy to customize.</p>
+      <div class="flex"><a href="https://github.com/q343313/TODO-APP" target="_blank">View Code</a> <a href="projects/ads.html">View Details</a></div>
+    </div>
+  </div>
+  <section id="projects" class="mt">
+      <h2 id="projects" class="section-title">🚧 Python Projects</h2>
+      <div class="projects">
+        <div class="card project">
+
+          <h3>All About Python</h3>
+          <p>python with Hive offline DB, categories, charts, and export to PDF. FastAPI backend for sync.</p>
+          <div class="flex"><a href="https://github.com/q343313/full_python" target="_blank">View Code</a> </div>
         </div>
-        <a class="cta" href="#projects">Explore Projects 🚀</a>
-      </div>
-      <div class="profile">
-        <img src="profile.jpeg" alt="Talha Afridi">
-      </div>
-    </section>
+        <div class="card project">
+          <h3>Python Advanced</h3>
+          <p>advance python with api firebase etc.</p>
+          <div class="flex"><a href="https://github.com/q343313/python1" target="_blank">View Code</a></div>
+        </div>
 
+        <div class="card project">
+
+          <h3>Password Tracker</h3>
+          <p>Single-page Password tracker Password manager that secure your password built with HTML/CSS/JS. Lightweight, mobile-first, easy to customize.</p>
+          <div class="flex"><a href="https://github.com/q343313/pasword-tracker-app-python" target="_blank">View Code</a>  </div>
+        </div>
+        <div class="card project">
+          <h3>AI Chat App</h3>
+          <p>Ai chat App using python integrated with OpenRouter / custom backend. Features streaming responses and offline cache.</p>
+          <div class="flex"><a href="https://github.com/q343313/chat-app-in-python" target="_blank">View Code</a></div>
+        </div>
+
+      </div>
+    </section>   
+
+  <section class="about" id="about">
+    <h3>About Me</h3>
+    <p><b>Education:</b> BS Cybersecurity (1st Semester) — IMSciences University, Peshawar HayatAbad</p>
+    <p><b>Skills:</b> Flutter, FastAPI, Firebase, SQLite, Hive, Python, NumPy, Pandas, Networking, MVVM, BLoC</p>
+    <p><b>GitHub:</b> <a href="https://github.com/q343313" target="_blank">github.com/q343313</a></p>
+    <p><b>Contact:</b> 0318-2586785 | <a href="mailto:talhashahafridi@gmail.com">talhashahafridi@gmail.com</a></p>
+    <p><b>Location:</b> Peshawar, Pakistan</p>
+  </section>
+
+  <h2 id="contact" class="section-title">📬 Contact Me</h2>
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Your name" required>
+    <input type="email" id="email" placeholder="Your email" required>
+    <textarea id="message" placeholder="Your message..." required></textarea>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</main>
+
+<footer>© <span id="year"></span> Talha Afridi — All rights reserved.</footer>
+<a href="https://wa.me/923182586785" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.getElementById('cv-btn').addEventListener('click', e=>{
+    e.preventDefault();
+    const link=document.createElement('a');
+    link.href='Talha_Afridi_Professional_CV.pdf';
+    link.download='Talha_Afridi_Professional_CV.pdf';
+    link.click();
+  });
+
+  document.getElementById('contact-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const name=document.getElementById('name').value;
+    const email=document.getElementById('email').value;
+    const msg=document.getElementById('message').value;
+    const mailto=`mailto:talhashahafridi@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0A%0A${encodeURIComponent(msg)}`;
+    window.location.href=mailto;
+  });
+
+  // Theme Toggle
+  const themeBtn = document.getElementById('theme-toggle');
+  if(localStorage.getItem('theme') === 'light'){document.body.classList.add('light-theme');themeBtn.textContent='🌙';}
+  themeBtn.addEventListener('click', ()=>{
+    document.body.classList.toggle('light-theme');
+    if(document.body.classList.contains('light-theme')){
+      localStorage.setItem('theme','light');themeBtn.textContent='🌙';
+    } else {
+      localStorage.setItem('theme','dark');themeBtn.textContent='☀️';
+    }
+  });
+</script>
+</body>
+</html>
+
+
+
+
+ <!--
  <h2 id="projects" class="section-title">🚧 Featured Projects</h2>
     <div class="projects">
       <div class="card project">
@@ -305,76 +414,6 @@ body.light-theme .chip {
         </div>
 
       </div>
-    </section>
-
-    <section class="about" id="about">
-      <h3>About Me</h3>
-      <p><b>Education:</b> BS Cybersecurity (1st Semester) — IMSciences University, Peshawar HayatAbad</p>
-      <p><b>Skills:</b> Flutter, FastAPI, Firebase, SQLite, Hive, Python, NumPy, Pandas, Networking, MVVM, BLoC</p>
-      <p><b>GitHub:</b> <a href="https://github.com/q343313" target="_blank">github.com/q343313</a></p>
-      <p><b>Contact:</b> 0318-2586785 | <a href="mailto:talhashahafridi@gmail.com">talhashahafridi@gmail.com</a></p>
-      <p><b>Location:</b> Peshawar, Pakistan</p>
-    </section>
-
-    <h2 id="contact" class="section-title">📬 Contact Me</h2>
-    <form id="contact-form">
-      <input type="text" id="name" placeholder="Your name" required>
-      <input type="email" id="email" placeholder="Your email" required>
-      <textarea id="message" placeholder="Your message..." required></textarea>
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
-  </main>
-
-  <footer>© <span id="year"></span> Talha Afridi — All rights reserved.</footer>
-
-  <a href="https://wa.me/923182586785" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
-
-  <script>
-    // Existing scripts
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    document.getElementById('cv-btn').addEventListener('click', e=>{
-      e.preventDefault();
-      const link=document.createElement('a');
-      link.href='Talha_Afridi_Professional_CV.pdf';
-      link.download='Talha_Afridi_Professional_CV.pdf';
-      link.click();
-    });
-
-    document.getElementById('contact-form').addEventListener('submit', e=>{
-      e.preventDefault();
-      const name=document.getElementById('name').value;
-      const email=document.getElementById('email').value;
-      const msg=document.getElementById('message').value;
-      const mailto=`mailto:talhashahafridi@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0A%0A${encodeURIComponent(msg)}`;
-      window.location.href=mailto;
-    });
-
-    // Theme Toggle
-    const themeBtn = document.getElementById('theme-toggle');
-
-    // Load saved theme
-    if(localStorage.getItem('theme') === 'light'){
-      document.body.classList.add('light-theme');
-      themeBtn.textContent = '🌙';
-    }
-
-    themeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-theme');
-      if(document.body.classList.contains('light-theme')){
-        localStorage.setItem('theme','light');
-        themeBtn.textContent = '🌙'; // moon icon to switch back to dark
-      } else {
-        localStorage.setItem('theme','dark');
-        themeBtn.textContent = '☀️'; // sun icon to switch to light
-      }
-    });
-  </script>
-</body>
-</html>
-
-
-
- <!--   
+    </section>   
   
      -->
