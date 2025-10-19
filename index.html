@@ -17,6 +17,49 @@
       --shadow:0 10px 35px rgba(0,0,0,0.6);
       font-family:'Poppins', sans-serif;
     }
+
+    /* Light theme override */
+    body.light-theme {
+      --bg: #f4f4f4;
+      --card: rgba(255,255,255,0.9);
+      --accent: #0077ff;
+      --accent2: #00cc88;
+      --muted: #555;
+      --shadow: 0 10px 35px rgba(0,0,0,0.2);
+      color: #111;
+    }
+
+    body.light-theme .intro h2,
+    body.light-theme .project h3 {
+      color: #111;
+    }
+
+    body.light-theme nav a {
+      color: #111;
+    }
+
+    body.light-theme nav a:hover {
+      color: #fff;
+    }
+
+    body.light-theme .about h3,
+    body.light-theme .about p {
+      color: #111;
+    }
+    body.light-theme input,
+body.light-theme textarea {
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Chips for light theme */
+body.light-theme .chip {
+  background: rgba(0, 123, 255, 0.1); /* subtle blue background */
+  color: #0077ff;
+  border: 1px solid rgba(0,123,255,0.3);
+}
+
     *{box-sizing:border-box;margin:0;padding:0;}
     html,body{background:var(--bg);color:#e8f1fa;scroll-behavior:smooth;overflow-x:hidden;}
 
@@ -42,7 +85,7 @@
       display:flex;align-items:center;justify-content:center;
       font-weight:800;font-size:20px;color:#011;box-shadow:var(--shadow);
     }
-    nav{display:flex;flex-wrap:wrap;justify-content:center;}
+    nav{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;}
     nav a{
       text-decoration:none;font-weight:600;margin:6px 6px;
       color:#fff;transition:0.3s;padding:8px 14px;border-radius:10px;
@@ -179,10 +222,13 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <a href="#" id="cv-btn">Download CV</a>
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" style="margin-left:12px; padding:6px 12px; border-radius:8px; cursor:pointer; border:none; font-weight:600;">🌙</button>
     </nav>
   </header>
 
   <main>
+    <!-- Hero, Projects, About, Contact Sections (unchanged) -->
     <section class="hero">
       <div class="intro">
         <h2>👋 Hi, I’m Talha — Flutter, FastAPI & Python Developer</h2>
@@ -199,8 +245,7 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-        <h2 id="projects" class="section-title">🚧 Featured Projects</h2>
+ <h2 id="projects" class="section-title">🚧 Featured Projects</h2>
     <div class="projects">
       <div class="card project">
           <h3>Smart Expense Manager</h3>
@@ -262,8 +307,6 @@
       </div>
     </section>
 
-
-    <!-- ABOUT -->
     <section class="about" id="about">
       <h3>About Me</h3>
       <p><b>Education:</b> BS Cybersecurity (1st Semester) — IMSciences University, Peshawar HayatAbad</p>
@@ -273,7 +316,6 @@
       <p><b>Location:</b> Peshawar, Pakistan</p>
     </section>
 
-    <!-- CONTACT -->
     <h2 id="contact" class="section-title">📬 Contact Me</h2>
     <form id="contact-form">
       <input type="text" id="name" placeholder="Your name" required>
@@ -288,6 +330,7 @@
   <a href="https://wa.me/923182586785" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
 
   <script>
+    // Existing scripts
     document.getElementById('year').textContent = new Date().getFullYear();
 
     document.getElementById('cv-btn').addEventListener('click', e=>{
@@ -306,9 +349,32 @@
       const mailto=`mailto:talhashahafridi@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0A%0A${encodeURIComponent(msg)}`;
       window.location.href=mailto;
     });
+
+    // Theme Toggle
+    const themeBtn = document.getElementById('theme-toggle');
+
+    // Load saved theme
+    if(localStorage.getItem('theme') === 'light'){
+      document.body.classList.add('light-theme');
+      themeBtn.textContent = '🌙';
+    }
+
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      if(document.body.classList.contains('light-theme')){
+        localStorage.setItem('theme','light');
+        themeBtn.textContent = '🌙'; // moon icon to switch back to dark
+      } else {
+        localStorage.setItem('theme','dark');
+        themeBtn.textContent = '☀️'; // sun icon to switch to light
+      }
+    });
   </script>
 </body>
 </html>
 
 
 
+ <!--   
+  
+     -->
