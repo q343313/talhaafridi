@@ -33,16 +33,18 @@
       display:flex;justify-content:space-between;align-items:center;
       padding:28px 40px;max-width:1200px;margin:auto;
       animation:fadeDown 1s ease;
+      flex-wrap:wrap;
     }
-    .brand{display:flex;align-items:center;gap:12px;}
+    .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
     .logo{
       width:56px;height:56px;border-radius:16px;
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       display:flex;align-items:center;justify-content:center;
       font-weight:800;font-size:20px;color:#011;box-shadow:var(--shadow);
     }
+    nav{display:flex;flex-wrap:wrap;justify-content:center;}
     nav a{
-      text-decoration:none;font-weight:600;margin-left:18px;
+      text-decoration:none;font-weight:600;margin:6px 6px;
       color:#fff;transition:0.3s;padding:8px 14px;border-radius:10px;
     }
     nav a:hover{
@@ -80,20 +82,22 @@
     .profile{
       border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
       border:1px solid rgba(255,255,255,0.05);animation:fadeIn 1.5s ease;
+      max-width:100%;
     }
+    .profile img{width:100%;height:auto;display:block;}
 
     /* SECTIONS */
     h2.section-title{margin:60px 0 20px;font-size:24px;color:var(--accent);font-weight:700;}
 
     /* PROJECTS */
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
     .project{
       background:var(--card);padding:20px;border-radius:14px;
       box-shadow:var(--shadow);transition:transform 0.3s,box-shadow 0.3s;
       border:1px solid rgba(255,255,255,0.05);
     }
     .project:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.7);}
-    .project h3{margin-bottom:8px;color:#fff;}
+    .project h3{margin-bottom:8px;color:#fff;font-size:18px;}
     .project p{color:var(--muted);font-size:14px;}
     .flex{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
     .flex a{color:var(--accent2);font-weight:600;font-size:13px;text-decoration:none;}
@@ -141,10 +145,22 @@
     @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
     @keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
     @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+    /* RESPONSIVE ADJUSTMENTS */
     @media(max-width:900px){
-      .hero{grid-template-columns:1fr;text-align:center;}
-      header{flex-direction:column;gap:16px;}
-      nav a{margin:0 6px;}
+      .hero{grid-template-columns:1fr;text-align:center;gap:30px;}
+      header{flex-direction:column;gap:16px;padding:20px;}
+      nav a{margin:6px 4px;}
+      .intro{padding:24px;}
+      .intro h2{font-size:24px;}
+    }
+    @media(max-width:600px){
+      .hero{gap:20px;}
+      .intro h2{font-size:20px;}
+      .chip{font-size:12px;padding:5px 12px;}
+      .project h3{font-size:16px;}
+      .flex a{font-size:12px;}
+      nav a{padding:6px 10px;font-size:14px;}
     }
   </style>
 </head>
@@ -179,12 +195,12 @@
         <a class="cta" href="#projects">Explore Projects 🚀</a>
       </div>
       <div class="profile">
-        <img src="profile.jpeg" alt="Talha Afridi" style="width:100%;height:auto;">
+        <img src="profile.jpeg" alt="Talha Afridi">
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <h2 id="projects" class="section-title">🚧 Featured Projects</h2>
+        <h2 id="projects" class="section-title">🚧 Featured Projects</h2>
     <div class="projects">
       <div class="card project">
           <h3>Smart Expense Manager</h3>
@@ -246,7 +262,8 @@
       </div>
     </section>
 
-    <!-- ABOUT ME -->
+
+    <!-- ABOUT -->
     <section class="about" id="about">
       <h3>About Me</h3>
       <p><b>Education:</b> BS Cybersecurity (1st Semester) — IMSciences University, Peshawar HayatAbad</p>
@@ -292,4 +309,6 @@
   </script>
 </body>
 </html>
+
+
 
