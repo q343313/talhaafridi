@@ -4,64 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Talha Afridi — Flutter & Fullstack Developer</title>
-  <meta name="description" content="Talha Afridi — Flutter, FastAPI, Firebase & Python Developer. Modern, animated and production-ready portfolio." />
+  <meta name="description" content="Talha Afridi — Flutter, FastAPI, Firebase & Python Developer. Professional portfolio website with responsive design." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
+<style>
+    :root {
       --bg:#0c1221;
       --card:rgba(255,255,255,0.05);
       --accent:#00e0ff;
       --accent2:#0affb4;
       --muted:#a0b3c5;
       --shadow:0 10px 35px rgba(0,0,0,0.6);
+      --text:#e8f1fa;
       font-family:'Poppins', sans-serif;
     }
 
-    /* Light theme override */
     body.light-theme {
-      --bg: #f4f4f4;
-      --card: rgba(255,255,255,0.9);
-      --accent: #0077ff;
-      --accent2: #00cc88;
-      --muted: #555;
-      --shadow: 0 10px 35px rgba(0,0,0,0.2);
-      color: #111;
+      --bg:#f4f4f4;
+      --card:rgba(255,255,255,0.95);
+      --accent:#0077ff;
+      --accent2:#00cc88;
+      --muted:#333;
+      --text:#111;
+      --shadow:0 10px 35px rgba(0,0,0,0.2);
+      color:var(--text);
     }
-
-    body.light-theme .intro h2,
-    body.light-theme .project h3 {
-      color: #111;
-    }
-
-    body.light-theme nav a {
-      color: #111;
-    }
-
-    body.light-theme nav a:hover {
-      color: #fff;
-    }
-
-    body.light-theme .about h3,
-    body.light-theme .about p {
-      color: #111;
-    }
-    body.light-theme input,
-body.light-theme textarea {
-  background: #fff;
-  color: #111;
-  border: 1px solid rgba(0,0,0,0.1);
-}
-
-/* Chips for light theme */
-body.light-theme .chip {
-  background: rgba(0, 123, 255, 0.1); /* subtle blue background */
-  color: #0077ff;
-  border: 1px solid rgba(0,123,255,0.3);
-}
 
     *{box-sizing:border-box;margin:0;padding:0;}
-    html,body{background:var(--bg);color:#e8f1fa;scroll-behavior:smooth;overflow-x:hidden;}
+    html,body{
+      background:var(--bg);
+      color:var(--text);
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
 
     body::before{
       content:"";
@@ -71,85 +45,120 @@ body.light-theme .chip {
       z-index:-1;
     }
 
-    /* HEADER */
     header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:28px 40px;max-width:1200px;margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 40px;
+      max-width:1200px;
+      margin:auto;
       animation:fadeDown 1s ease;
-      flex-wrap:wrap;
+      position:relative;
     }
-    .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+
+    .brand{display:flex;align-items:center;gap:12px;}
     .logo{
       width:56px;height:56px;border-radius:16px;
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       display:flex;align-items:center;justify-content:center;
       font-weight:800;font-size:20px;color:#011;box-shadow:var(--shadow);
     }
-    nav{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;}
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      gap:6px;
+    }
     nav a{
-      text-decoration:none;font-weight:600;margin:6px 6px;
-      color:#fff;transition:0.3s;padding:8px 14px;border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      color:var(--text);
+      padding:8px 14px;
+      border-radius:10px;
+      transition:0.3s;
     }
     nav a:hover{
       background:linear-gradient(90deg,var(--accent),var(--accent2));
-      color:#011;box-shadow:0 0 10px var(--accent2);
+      color:#011;
+      box-shadow:0 0 10px var(--accent2);
     }
 
     main{max-width:1200px;margin:auto;padding:20px;}
 
-    /* HERO */
     .hero{
-      display:grid;grid-template-columns:1fr 380px;align-items:center;
-      gap:50px;margin-top:30px;
+      display:grid;
+      grid-template-columns:1fr 380px;
+      align-items:center;
+      gap:50px;
+      margin-top:30px;
     }
     .intro{
-      background:var(--card);backdrop-filter:blur(10px);
-      border-radius:18px;padding:32px;box-shadow:var(--shadow);
+      background:var(--card);
+      backdrop-filter:blur(10px);
+      border-radius:18px;
+      padding:32px;
+      box-shadow:var(--shadow);
       animation:fadeUp 1.2s ease;
     }
-    .intro h2{font-size:32px;line-height:1.3;color:#fff;}
+    .intro h2{font-size:32px;color:var(--text);}
     .intro p{margin-top:12px;color:var(--muted);font-size:15px;}
     .chips{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;}
     .chip{
-      background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:999px;
-      font-size:13px;color:#9dc2d0;font-family:'Fira Code',monospace;
-      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.1);
+      padding:6px 14px;
+      border-radius:999px;
+      font-size:13px;
+      color:#9dc2d0;
+      font-family:'Fira Code',monospace;
+    }
+    body.light-theme .chip {
+      background:rgba(0,0,0,0.05);
+      color:#333;
     }
     .cta{
-      display:inline-block;margin-top:24px;
+      display:inline-block;
+      margin-top:24px;
       background:linear-gradient(90deg,var(--accent),var(--accent2));
-      color:#011;font-weight:700;padding:12px 22px;border-radius:10px;
-      transition:0.3s;text-decoration:none;box-shadow:0 0 10px var(--accent2);
+      color:#011;font-weight:700;padding:12px 22px;
+      border-radius:10px;transition:0.3s;text-decoration:none;
+      box-shadow:0 0 10px var(--accent2);
     }
-    .cta:hover{transform:translateY(-3px);filter:brightness(1.1);}
-    .profile{
-      border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,0.05);animation:fadeIn 1.5s ease;
-      max-width:100%;
+    .cta:hover{transform:translateY(-3px);}
+    .profile{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
+    .profile img{width:100%;height:auto;}
+
+    h2.section-title{
+      margin:60px 0 20px;
+      font-size:24px;
+      color:var(--accent);
+      font-weight:700;
     }
-    .profile img{width:100%;height:auto;display:block;}
 
-    /* SECTIONS */
-    h2.section-title{margin:60px 0 20px;font-size:24px;color:var(--accent);font-weight:700;}
-
-    /* PROJECTS */
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:22px;
+    }
     .project{
-      background:var(--card);padding:20px;border-radius:14px;
-      box-shadow:var(--shadow);transition:transform 0.3s,box-shadow 0.3s;
-      border:1px solid rgba(255,255,255,0.05);
+      background:var(--card);
+      padding:20px;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      transition:transform 0.3s;
     }
-    .project:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.7);}
-    .project h3{margin-bottom:8px;color:#fff;font-size:18px;}
+    .project:hover{transform:translateY(-6px);}
+    .project h3{margin-bottom:8px;color:var(--text);font-size:18px;}
     .project p{color:var(--muted);font-size:14px;}
     .flex{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
     .flex a{color:var(--accent2);font-weight:600;font-size:13px;text-decoration:none;}
     .flex a:hover{text-decoration:underline;}
 
-    /* ABOUT */
     .about{
-      background:var(--card);backdrop-filter:blur(10px);
-      padding:30px;border-radius:14px;box-shadow:var(--shadow);
+      background:var(--card);
+      padding:30px;
+      border-radius:14px;
+      box-shadow:var(--shadow);
       margin-top:70px;
     }
     .about h3{color:var(--accent);margin-bottom:10px;}
@@ -157,53 +166,90 @@ body.light-theme .chip {
     .about a{color:var(--accent2);text-decoration:none;}
     .about a:hover{text-decoration:underline;}
 
-    /* CONTACT FORM */
     form{margin-top:20px;}
     input,textarea{
-      width:100%;padding:12px;border-radius:8px;
+      width:100%;
+      padding:12px;
+      border-radius:8px;
       border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.03);color:#fff;
-      margin-bottom:10px;font-family:'Poppins',sans-serif;
+      background:rgba(255,255,255,0.03);
+      color:var(--text);
+      margin-bottom:10px;
+      font-family:'Poppins',sans-serif;
     }
-    textarea{min-height:120px;resize:vertical;}
+    body.light-theme input, body.light-theme textarea{
+      background:rgba(0,0,0,0.04);
+      border:1px solid rgba(0,0,0,0.1);
+      color:#111;
+    }
+    textarea{min-height:120px;}
     .submit-btn{
       background:linear-gradient(90deg,var(--accent),var(--accent2));
-      color:#011;padding:12px 18px;border:none;border-radius:8px;
-      font-weight:700;cursor:pointer;transition:all 0.3s;box-shadow:0 0 10px var(--accent2);
+      color:#011;
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      font-weight:700;
+      cursor:pointer;
     }
-    .submit-btn:hover{transform:scale(1.05);}
 
-    /* WHATSAPP */
     .whatsapp-btn{
-      position:fixed;bottom:24px;right:24px;background:#25D366;
-      color:#fff;border-radius:50%;width:60px;height:60px;
+      position:fixed;
+      bottom:24px;right:24px;
+      background:#25D366;
+      color:#fff;
+      border-radius:50%;
+      width:60px;height:60px;
       display:flex;align-items:center;justify-content:center;
-      font-size:28px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.6);
+      font-size:28px;
+      text-decoration:none;
+      box-shadow:0 4px 12px rgba(0,0,0,0.6);
       transition:0.3s;
     }
-    .whatsapp-btn:hover{transform:scale(1.1);}
 
     footer{text-align:center;margin-top:60px;color:var(--muted);font-size:14px;padding-bottom:30px;}
 
     @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
     @keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
-    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 
-    /* RESPONSIVE ADJUSTMENTS */
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr;text-align:center;gap:30px;}
-      header{flex-direction:column;gap:16px;padding:20px;}
-      nav a{margin:6px 4px;}
-      .intro{padding:24px;}
-      .intro h2{font-size:24px;}
+    /* ✅ Mobile Menu Button (top right corner) */
+    .menu-icon {
+      display: none;
+      position: absolute;
+      top: 22px;
+      right: 25px;
+      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      color: #011;
+      border: none;
+      font-size: 24px;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      z-index: 1000;
     }
-    @media(max-width:600px){
-      .hero{gap:20px;}
-      .intro h2{font-size:20px;}
-      .chip{font-size:12px;padding:5px 12px;}
-      .project h3{font-size:16px;}
-      .flex a{font-size:12px;}
-      nav a{padding:6px 10px;font-size:14px;}
+
+    #navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @media(max-width:768px){
+      .menu-icon{display:block;}
+      #navbar{
+        display:none;
+        flex-direction:column;
+        background:var(--card);
+        width:100%;
+        position:absolute;
+        top:80px;left:0;
+        padding:15px 0;
+        box-shadow:var(--shadow);
+      }
+      #navbar.show{display:flex;}
     }
   </style>
 </head>
@@ -217,35 +263,33 @@ body.light-theme .chip {
         <p style="color:var(--muted)">Flutter & Fullstack Developer</p>
       </div>
     </div>
-    <nav>
+
+    <button id="menu-toggle" class="menu-icon">☰</button>
+
+    <nav id="navbar">
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <a href="#" id="cv-btn">Download CV</a>
-      <!-- Theme Toggle Button -->
-      <button id="theme-toggle" style="margin-left:12px; padding:6px 12px; border-radius:8px; cursor:pointer; border:none; font-weight:600;">🌙</button>
+      <button id="theme-toggle">🌙</button>
     </nav>
   </header>
 
   <main>
-    <!-- Hero, Projects, About, Contact Sections (unchanged) -->
     <section class="hero">
       <div class="intro">
         <h2>👋 Hi, I’m Talha — Flutter, FastAPI & Python Developer</h2>
-        <p>I build modern apps using Flutter, FastAPI, and Firebase — with clean architecture, BLoC state management, and secure backend integration. My goal is to create seamless digital experiences from backend to frontend.</p>
+        <p>I build modern apps using Flutter, FastAPI, and Firebase — with clean architecture, BLoC state management, and secure backend integration.</p>
         <div class="chips">
           <div class="chip">Flutter</div><div class="chip">FastAPI</div><div class="chip">Firebase</div>
           <div class="chip">Hive</div><div class="chip">SQLite</div><div class="chip">Python</div>
-          <div class="chip">BLoC</div><div class="chip">Provider</div><div class="chip">Cybersecurity</div>
         </div>
         <a class="cta" href="#projects">Explore Projects 🚀</a>
       </div>
-      <div class="profile">
-        <img src="profile.jpeg" alt="Talha Afridi">
-      </div>
+      <div class="profile"><img src="profile.jpeg" alt="Talha Afridi"></div>
     </section>
 
- <h2 id="projects" class="section-title">🚧 Featured Projects</h2>
+    <h2 id="projects" class="section-title">🚧 Featured Projects</h2>
     <div class="projects">
       <div class="card project">
           <h3>Smart Expense Manager</h3>
@@ -307,13 +351,13 @@ body.light-theme .chip {
       </div>
     </section>
 
-    <section class="about" id="about">
+
+    <section id="about" class="about">
       <h3>About Me</h3>
-      <p><b>Education:</b> BS Cybersecurity (1st Semester) — IMSciences University, Peshawar HayatAbad</p>
-      <p><b>Skills:</b> Flutter, FastAPI, Firebase, SQLite, Hive, Python, NumPy, Pandas, Networking, MVVM, BLoC</p>
+      <p><b>Education:</b> BS Cybersecurity (IMSciences, Peshawar)</p>
+      <p><b>Skills:</b> Flutter, FastAPI, Firebase, Hive, Python, SQLite</p>
       <p><b>GitHub:</b> <a href="https://github.com/q343313" target="_blank">github.com/q343313</a></p>
       <p><b>Contact:</b> 0318-2586785 | <a href="mailto:talhashahafridi@gmail.com">talhashahafridi@gmail.com</a></p>
-      <p><b>Location:</b> Peshawar, Pakistan</p>
     </section>
 
     <h2 id="contact" class="section-title">📬 Contact Me</h2>
@@ -326,55 +370,33 @@ body.light-theme .chip {
   </main>
 
   <footer>© <span id="year"></span> Talha Afridi — All rights reserved.</footer>
-
-  <a href="https://wa.me/923182586785" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
+  <a href="https://wa.me/923182586785" target="_blank" class="whatsapp-btn">💬</a>
 
   <script>
-    // Existing scripts
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    document.getElementById('cv-btn').addEventListener('click', e=>{
-      e.preventDefault();
-      const link=document.createElement('a');
-      link.href='Talha_Afridi_Professional_CV.pdf';
-      link.download='Talha_Afridi_Professional_CV.pdf';
-      link.click();
-    });
-
-    document.getElementById('contact-form').addEventListener('submit', e=>{
-      e.preventDefault();
-      const name=document.getElementById('name').value;
-      const email=document.getElementById('email').value;
-      const msg=document.getElementById('message').value;
-      const mailto=`mailto:talhashahafridi@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0A%0A${encodeURIComponent(msg)}`;
-      window.location.href=mailto;
-    });
-
-    // Theme Toggle
     const themeBtn = document.getElementById('theme-toggle');
-
-    // Load saved theme
     if(localStorage.getItem('theme') === 'light'){
       document.body.classList.add('light-theme');
       themeBtn.textContent = '🌙';
     }
-
-    themeBtn.addEventListener('click', () => {
+    themeBtn.addEventListener('click', ()=>{
       document.body.classList.toggle('light-theme');
       if(document.body.classList.contains('light-theme')){
         localStorage.setItem('theme','light');
-        themeBtn.textContent = '🌙'; // moon icon to switch back to dark
+        themeBtn.textContent='🌙';
       } else {
         localStorage.setItem('theme','dark');
-        themeBtn.textContent = '☀️'; // sun icon to switch to light
+        themeBtn.textContent='☀️';
       }
+    });
+
+    const menuBtn = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+    menuBtn.addEventListener('click', ()=> navbar.classList.toggle('show'));
+    navbar.querySelectorAll('a,button').forEach(i=>{
+      i.addEventListener('click', ()=> navbar.classList.remove('show'));
     });
   </script>
 </body>
 </html>
-
-
-
- <!--   
-  
-     -->
